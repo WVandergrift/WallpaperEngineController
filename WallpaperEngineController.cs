@@ -55,7 +55,7 @@ namespace WallpaperEngineController
             if (config != null)
             {
                 logger.Info($"Preparing to set Wallpaper Engine profile to: {config.WallpaperEngineProfile}");                
-                System.Diagnostics.Process.Start(Path.Combine(wallpaperEngine.InstallDirectory, "wallpaper32.exe"), $"-control openProfile -profile {config.WallpaperEngineProfile}");
+                System.Diagnostics.Process.Start(Path.Combine(wallpaperEngine.InstallDirectory, "wallpaper32.exe"), $"-control openProfile -profile \"{config.WallpaperEngineProfile}\"");
 
                 // Check to see if we should mute the wallpaper
                 string muteSetting = config.Mute ? "mute" : "unmute";           

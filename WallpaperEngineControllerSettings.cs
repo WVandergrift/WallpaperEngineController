@@ -96,28 +96,28 @@ namespace WallpaperEngineController
             string wallpaperEnginePath = "";
 
             // Build our list of games for the combobox
-            if (games.Count == 0)
+            games.Clear();
+            foreach (Game game in plugin.PlayniteApi.Database.Games)
             {
-                foreach (Game game in plugin.PlayniteApi.Database.Games)
-                {                    
-                    GameListItem item = new GameListItem();
-                    item.Id = game.Id;
-                    item.Name = game.Name;
-                    
-                    item.IconPath = Path.Combine(plugin.PlayniteApi.Database.GetFileStoragePath(game.Id), Path.GetFileName(game.Icon));                    
-                    games.Add(item);      
-                    
-                    // If the current game is Wallpaper Engine, get it's install path
-                    if (game.Name == "Wallpaper Engine")
-                    {
-                        wallpaperEnginePath = game.InstallDirectory;
-                    }
+                GameListItem item = new GameListItem();
+                item.Id = game.Id;
+                item.Name = game.Name;
+
+                item.IconPath = Path.Combine(plugin.PlayniteApi.Database.GetFileStoragePath(game.Id), Path.GetFileName(game.Icon));
+                games.Add(item);
+
+                // If the current game is Wallpaper Engine, get it's install path
+                if (game.Name == "Wallpaper Engine")
+                {
+                    wallpaperEnginePath = game.InstallDirectory;
                 }
             }
 
+
             // Build our list of Wallpaper Engine profiles for the combobox
-            if (profiles.Count == 0 && wallpaperEnginePath != "")
+            if (wallpaperEnginePath != "")
             {
+                profiles.Clear();
                 try
                 {
                     using (StreamReader file = File.OpenText(Path.Combine(wallpaperEnginePath, "config.json")))

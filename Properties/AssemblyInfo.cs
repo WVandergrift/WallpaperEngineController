@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WallpaperEngineController")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Wallpaper Engine Controller")]
+[assembly: AssemblyDescription("Playnite plugin that allows you to configure what wallpaper profile to use when playing a game")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("WallpaperEngineController")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
